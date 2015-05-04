@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Lab Reservation</title>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		
+		<!-- Stylesheets -->
+		<link rel="stylesheet" href="http://cis-linux2.temple.edu/~tuf82846/LabReservation/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://cis-linux2.temple.edu/~tuf82846/LabReservation/css/slidebars.min.css">
+		<link rel="stylesheet" href="http://cis-linux2.temple.edu/~tuf82846/LabReservation/css/styleSlidebars.css" type="text/css">
+		<link rel="stylesheet" href="http://cis-linux2.temple.edu/~tuf82846/LabReservation/css/styleProject.css" type="text/css">
+		<link rel="stylesheet" href="http://cis-linux2.temple.edu/~tuf82846/LabReservation/css/reset.css" type="text/css">
+		<link rel="stylesheet" href="http://cis-linux2.temple.edu/~tuf82846/LabReservation/css/zabuto_calendar.min.css" type="text/css">
+		
+		<!-- Libraries -->
+		<script type="text/javascript" src="http://cis-linux2.temple.edu/~tuf82846/LabReservation/js/jquery.min.js"></script>
+		<script type="text/javascript" src="http://cis-linux2.temple.edu/~tuf82846/LabReservation/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="http://cis-linux2.temple.edu/~tuf82846/LabReservation/js/slidebars.min.js"></script>
+		<script type="text/javascript" src="http://cis-linux2.temple.edu/~tuf82846/LabReservation/js/zabuto_calendar.min.js"></script>	
+		<script type="text/javascript" src="http://cis-linux2.temple.edu/~tuf82846/LabReservation/js/jquery-ui.js"></script>
+		
+		<!-- Backend Scripts -->
+		<script type="text/javascript" src="http://cis-linux2.temple.edu/~tuf82846/LabReservation/js/readButtons.js"></script>
+		<script type="text/javascript" src="http://cis-linux2.temple.edu/~tuf82846/LabReservation/js/checkForm.js"></script>
+		<script type="text/javascript" src="http://cis-linux2.temple.edu/~tuf82846/LabReservation/js/showProfessor.js"></script>
+		<script type="text/javascript" src="http://cis-linux2.temple.edu/~tuf82846/LabReservation/js/showCalendar.js"></script>
+		<script type="text/javascript" src="http://cis-linux2.temple.edu/~tuf82846/LabReservation/js/showHours.js"></script>
+		<script type="text/javascript" src="http://cis-linux2.temple.edu/~tuf82846/LabReservation/js/showRoom.js"></script>
+		<script type="text/javascript" src="http://cis-linux2.temple.edu/~tuf82846/LabReservation/js/showBuildings.js"></script>
+		<script type="text/javascript" src="http://cis-linux2.temple.edu/~tuf82846/LabReservation/js/showSubmit.js"></script>
+		<script type="text/javascript" src="http://cis-linux2.temple.edu/~tuf82846/LabReservation/js/home.js"></script>
+		<script type="text/javascript" src="http://cis-linux2.temple.edu/~tuf82846/LabReservation/js/selectBuilding.js"></script>
+		<script type="text/javascript" src="http://cis-linux2.temple.edu/~tuf82846/LabReservation/js/checkFormReset.js"></script>
+		
+		<!-- Responsive HTML -->
+		<script type="text/javascript" src="http://cis-linux2.temple.edu/~tuf82846/LabReservation/js/script.js"></script>
+		<script type="text/javascript" src="http://cis-linux2.temple.edu/~tuf82846/LabReservation/js/cScroll.js"></script>
+		<script type="text/javascript" src="http://cis-linux2.temple.edu/~tuf82846/LabReservation/js/jquery.color.js"></script>
+		<script type="text/javascript" src="http://cis-linux2.temple.edu/~tuf82846/LabReservation/js/bgStretch.js"></script>
+		<script type="text/javascript" src="http://cis-linux2.temple.edu/~tuf82846/LabReservation/js/content_switch.js"></script>
+		
+		<!--Used to make the animation to open a new window -->
+		<script type="text/javascript" src="http://cis-linux2.temple.edu/~tuf82846/LabReservation/js/jcarousellite.js"></script>
+		<script type="text/javascript" src="http://cis-linux2.temple.edu/~tuf82846/LabReservation/js/superfish.js"></script>	
+		<script type="text/javascript" src="http://cis-linux2.temple.edu/~tuf82846/LabReservation/js/jquery.browser.min.js"></script>
+		
+		<!-- Favicon -->
+		<link rel="icon" type="image/png" href="http://cis-linux2.temple.edu/~tuf82846/LabReservation/images/favicon.ico">
+	</head>
+	
+	<body onload="ReadButtons()">
+		<img src="http://cis-linux2.temple.edu/~tuf82846/LabReservation/images/bg1-cropped.jpg" class="bgResponsive">
+		<!-- Menu-->
+		<nav class="navbar navbar-default navbar-fixed-top sb-slide menu" role="navigation">
+			<div class="sb-toggle-left navbar-left">
+				<div class="navicon-line"></div>
+				<div class="navicon-line"></div>
+				<div class="navicon-line"></div>
+			</div>
+			
+			<div class="container">
+				<!-- Logo -->
+				<div id="logo" class="navbar-left">
+					<a href="#!"><img src="http://cis-linux2.temple.edu/~tuf82846/LabReservation/images/Logo4.png" alt="Slidebars Logo" width="118" height="40"></a>
+				</div>
+				
+				<!-- Menu -->
+				<ul class="nav navbar-nav navbar-right menu">
+					<li id="Home1" style="display:none"><a href="#!/Home"> Home </a></li>
+					<li id="New1" style="display:none"><a href="#!/New"> New </a></li>
+					<li id="App1" style="display:none"><a href="#!/Appointments"> Appointments </a></li>
+					<li id="LB01" style="display:block"><a href="#!/Login"> Login </a></li>
+					<li id="Reg1" style="display:block"><a href="#!/Registration"> Registration </a></li>
+					<li id="ab1" style="display:block"><a href="#!/About"> About </a></li>
+					<li id="LB11" style="display:none"><a href="php/logout.php"> Logout </a></li>
+				</ul>
+			</div>
+		</nav>
+		<!-- Site -->
+		<div class="over">
+			<div class="main">
+				<div id="sb-site">
+					<div class="container">
+						<article id="content">
+							<ul>
+								<li id="Home">
+									<div class="pad">
+										<a href="#close" class="close"><span></span></a>
+										<div class="wrapper">
+											<script>
+												$(function(){
+													home();
+												});
+											</script>
+											<div id="welcome" style="display:none"></div>
+											<br><br><br><br><br><br><br><br><br><br>
+										</div>
+									</div>
+								</li>
+								<li id="About">
+									<div class="pad">
+										<a href="#close" class="close"><span></span></a>
+										<div class="wrapper">
+											<h4> Lab Reservation App </h4> <br />
+											<p style="font-size:11px">This APP was developed in the Mobile Computing Technologies class taught by Dr. Justin Y. Shi at Temple University, 2015. The objective of this APP is manage Temple University's appointment system and facilitate the whole process between students and professors. Meet the LAB Reservation App's creators:</p> <br>
+											<table style="font-size:11px">
+												<tr>
+													<td style="padding-bottom: 10px;"> <img src="https://sites.google.com/site/labreservation2305/_/rsrc/1428455506808/home/11075193_334720170072651_6787693346703540188_n.jpg?height=200&width=200" class="img-circle" style="width:100px"> </td>
+													<td style="padding-left: 10px; padding-bottom: 10px;"><b>Matheus Romao Barcellos</b><br>I am studying Computer Science for 2015. However, I'm a Computer Engineering Major in Brazil, where I'm a senior student. </td>
+												</tr>
+												<tr>
+													<td> <img src="https://sites.google.com/site/labreservation2305/_/rsrc/1428456002710/home/IMG_1610.jpg?height=200&width=199" class="img-circle" style="width:100px"> </td>
+													<td style="padding-left: 10px; padding-bottom: 10px;"><b>Aaron Long</b><br> I'm an English Major getting a minor in Computer Science. Through high school and college, I've been designing and implementing websites using PHP, JavaScript, CSS3, and HTML 5. </td>
+												</tr>
+												<tr>
+													<td> <img src="https://sites.google.com/site/labreservation2305/_/rsrc/1428456321185/home/378325_398404293546195_2018532331_n.jpg?height=160&width=200" class="img-circle" style="width:100px; height:100px"> </td>
+													<td style="padding-left: 10px;"><b>Cláudio César G. F. Filho</b> <br> I'm an Science Information Major in Temple in 2015. I worked with based-case reasoning (CBR), Software Quality Assurance (SQA) and E-Learning.</td>
+												</tr>
+											</table>
+										</div>
+									</div>									
+								</li>
+								<li id="Login">
+									<div class="pad">
+										<a href="#close" class="close"><span></span></a>
+										<div class="wrapper">
+											<h4> Login </h4> <br />
+											<form action="http://cis-linux2.temple.edu/~tuf82846/LabReservation/php/login.php" method="post" id="LoginForm">
+												<div class="wrapper">
+													<label class="email">
+														<span class="bg"><input type="text" name="Email" placeholder="Email" required /></span>
+														<span class="empty">*Required</span>
+													</label>
+												</div>
+												<div class="wrapper">
+													<label class="password">
+														<span class="bg"><input type="password" name="Password" placeholder="Password" required /></span>
+														<span class="empty">*Required.</span>
+													</label>
+												</div>
+												<br /><input type="submit" value="Login" />
+											</form> 
+											<br /> <h4> Registration </h4> <br />
+											Don't you have an account? <a href="#!/Registration">Sign up</a> now. <br>
+											Don't you remember your password? Click <a href="#!/Reminder"> Here</a>. <br>		
+										</div>
+									</div>
+								</li>
+								<li id="Registration">
+									<div class="pad">
+										<a href="#close" class="close"><span></span></a>
+										<div class="wrapper">
+											<h4> Registration </h4> <br />
+											<form action="php/registration.php" method="post" id="RegistrationForm" data-ajax="false" onsubmit="return checkForm(this);">
+												<div class="wrapper">
+													<label class="name">
+														<span class="bg"><input type="text" name="name" placeholder="Name" required /></span>
+														<span class="empty">*Required</span>
+													</label>
+												</div>
+												<div class="wrapper">
+													<label class="email">
+														<span class="bg"><input type="text" name="email" placeholder="Email" required /></span>
+														<span class="empty">*Required</span>
+													</label>
+												</div>
+												<div class="wrapper">
+													<label class="password">
+														<span class="bg"><input type="password" name="pwd1" placeholder="Password" required /></span>
+														<span class="empty">*Required.</span>
+													</label>
+												</div>
+												<div class="wrapper">
+													<label class="password">
+														<span class="bg"><input type="password" name="pwd2" placeholder="Confirm Password" required /></span>
+														<span class="empty">*Required.</span>
+													</label>
+												</div>
+												<br /><input type="submit" name="submit" value="Register" />
+											</form>
+										</div>
+									</div>								
+								</li>
+								<li id="Appointments">
+									<div class="pad">
+										<a href="#close" class="close"><span></span></a>
+										<div class="wrapper">
+											<h4> Make an Appointment </h4> <br />
+											<form action="php/appointment.php" method="post" id="RegistrationForm">
+												<div class="wrapper">
+													<label class="department">
+														<span class="bg">
+															<select name="department" onchange="showProfessor(this.value)">
+																<option selected="0">Select professor's department&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </option>
+																<option value="biology">Biology</option>
+																<option value="chemistry">Chemistry</option>
+																<option value="computer">Computer & Information Sciences</option>
+																<option value="earth">Earth & Environmental Science</option>
+																<option value="mathematics">Mathematics</option>
+																<option value="physics">Physics</option>
+															</select>
+														</span>
+														<span class="empty">*Required</span>
+													</label>
+												</div>
+												<div id="professor" style="display:none"> </div>
+												<div id="calendar1" style="display:none"></div>
+												<div id="dateSelected"></div>
+												<div id="hours" style="display:none"></div>
+												<div id="buildings" style="display:none"> </div>	
+												<div id="room" style="display:none"> </div>
+												<div id="submit" style="display:none"> </div>												
+											</form>
+											<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+										</div>
+									</div>								
+								</li>
+								<li id="New">
+									<div class="pad">
+										<a href="#close" class="close"><span></span></a>
+										<div class="wrapper">
+											<h2> New </h2> <br />
+											If you want to register a new Building, click <a href="#!/NewBuilding"> here</a>.<br>
+											If you want to register a new Room, click <a href="#!/NewRoom"> here</a>.<br>
+											If you want to register a new Professor, click <a href="#!/NewProfessor"> here</a>.<br>
+										</div>
+									</div>
+								</li>
+								<li id="Reminder">
+									<div class="pad">
+										<a href="#close" class="close"><span></span></a>
+										<div class="wrapper">
+											<br /> <h4> Password Reminder </h4> <br />
+											<form action="php/passwordReminder.php" method="post" id="RegistrationForm" data-ajax="false">
+												<div class="wrapper">
+													<label class="email">
+														<span class="bg"><input type="text" name="email" placeholder="Registered Email"></span>
+														<span class="empty">*Required</span>
+													</label>
+												</div>
+												<br /><input type="submit" name="submit" value="Send">
+											</form>
+										</div>
+									</div>
+								</li>
+								<li id="Reset">
+									<div class="pad">
+										<a href="#close" class="close"><span></span></a>
+										<div class="wrapper">
+											<br /> <h4> Password Reset </h4> <br />
+											<form action="php/passwordReset.php" data-ajax="false" method="POST">
+												<div class="wrapper">
+													<label class="email">
+														<span class="bg"><input type="email" name="email" placeholder="Enter email again" required /></span>
+														<span class="empty">*Required</span>
+													</label>
+												</div>
+												<div class="wrapper">
+													<label class="password">
+														<span class="bg"><input type="password" name="pass" placeholder="Enter New Password" required /></span>
+														<span class="empty">*Required</span>
+													</label>
+												</div>
+												<br /><input type="submit"  name="submit" value="Reset" />
+											</form>
+										</div>
+									</div>
+								</li>
+								<li id="NewBuilding"> 
+									<div class="pad">
+										<a href="#close" class="close"><span></span></a>
+										<div class="wrapper">
+											<h4>New Building </h4> <br />
+											<form action="php/new.php" method="post" id="RegistrationForm">
+												<div class="wrapper">
+													<label class="namB">
+														<span class="bg"><input type="text" name="name" placeholder="Name" required /></span>
+														<span class="empty">*Required</span>
+													</label>
+												</div>
+												<div class="wrapper">
+													<label class="location">
+														<span class="bg"><input type="text" name="location" placeholder="Location" required /></span>
+														<span class="empty">*Required</span>
+													</label>
+												</div>	
+												<div class="wrapper">
+													<label class="department">
+														<span class="bg"><input type="text" name="department" placeholder="Department" required /></span>
+														<span class="empty">*Required</span>
+													</label>
+												</div>												
+												<br /><input type="submit" name="submit" value="NewBuilding" /> <br />			 							
+											</form>
+										</div>
+									</div>
+								</li>
+								<li id="NewRoom">
+									<div class="pad">
+										<a href="#close" class="close"><span></span></a>
+										<div class="wrapper">
+											<h4>New Room </h4> <br />
+											<form action="php/new.php" method="post" id="RegistrationForm">
+												<div class="wrapper">
+													<label class="number">
+														<span class="bg"><input type="number" name="number" placeholder="Number" required /></span>
+														<span class="empty">*Required</span>
+													</label>
+												</div>
+												<script> 
+													$(function(){
+														selectBuilding();
+													});
+												</script>
+												<div id="buildings2" style="display:none"> </div> 
+												<br /><input type="submit" name="submit" value="NewRoom" /> <br />		
+											</form>
+										</div>
+									</div>
+								</li>
+								<li id="NewProfessor">
+									<div class="pad">
+										<a href="#close" class="close"><span></span></a>
+										<div class="wrapper">
+											<h4>New Professor </h4> <br />
+											<form action="php/new.php" method="post" id="RegistrationForm">
+												<div class="wrapper">
+													<label class="name">
+														<span class="bg"><input type="text" name="name" placeholder="Name" required /></span>
+														<span class="empty">*Required</span>
+													</label>
+												</div>
+												<div class="wrapper">
+													<label class="email">
+														<span class="bg"><input type="text" name="email" placeholder="Email" required /></span>
+														<span class="empty">*Required</span>
+													</label>
+												</div>
+												<div class="wrapper">
+													<label class="password">
+														<span class="bg"><input type="password" name="password" placeholder="Password" required /></span>
+														<span class="empty">*Required</span>
+													</label>
+												</div>
+												<div class="wrapper">
+													<label class="department">
+														<span class="bg"><input type="text" name="department" placeholder="Department" required /></span>
+														<span class="empty">*Required</span>
+													</label>
+												</div>
+												<div class="wrapper">
+													<label class="officeDays">
+														<span class="bg" style="font-size:11px">
+															<input type="checkbox" name="sun" value="2"> Sun
+															<input type="checkbox" name="mon" value="2"> Mon 
+															<input type="checkbox" name="tue" value="2"> Tue
+															<input type="checkbox" name="wed" value="2"> Wed
+															<input type="checkbox" name="thu" value="2"> Thu
+															<input type="checkbox" name="fri" value="2"> Fri
+															<input type="checkbox" name="sat" value="2"> Sat
+														</span>
+														<span class="empty">*Required</span>
+													</label>
+												</div>
+												<div class="wrapper">
+													<label class="officeHoursI">
+														<span class="bg"><input type="number" name="officeHoursI" placeholder="Office hours: from" required /></span>
+														<span class="empty">*Required</span>
+													</label>
+												</div>
+												<div class="wrapper">
+													<label class="officeHoursF">
+														<span class="bg"><input type="number" name="officeHoursF" placeholder="Office hours: to" required /></span>
+														<span class="empty">*Required</span>
+													</label>
+												</div>
+												<br /><input type="submit" name="submit" value="NewProfessor" /> <br />															
+											</form>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</article>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Footer -->
+		<div class="bg1">
+			<footer>
+				LAB Reservation, Temple University, 2015.
+			</footer>
+		</div>	
+		<!-- Slidebars -->
+		<div class="sb-slidebar sb-left sb-style-push sb-style-overlay">
+			<nav>
+				<ul class="sb-menu">
+					<li><img src="http://cis-linux2.temple.edu/~tuf82846/LabReservation/images/Logo4.png" alt="Slidebars" width="118" height="40"></li>
+					<li class="sb-close" id="Home2" style="display:none"><a href="#!/Home"> Home </a></li>
+					<li class="sb-close" id="New2" style="display:none"><a href="#!/New"> New </a></li>
+					<li class="sb-close" id="App2" style="display:none"><a href="#!/Appointments"> Appointments </a></li>
+					<li class="sb-close" id="LB02" style="display:block"><a href="#!/Login"> Login </a></li>
+					<li class="sb-close" id="Reg2" style="display:block"><a href="#!/Registration"> Registration </a></li>
+					<li class="sb-close" id="ab2" style="display:block"><a href="#!/About"> About </a></li>
+					<li class="sb-close" id="LB12" style="display:none"><a href="php/logout.php"> Logout </a></li>
+				</ul>
+			</nav>
+		</div>
+		
+		<script>
+			(function($) {
+				$(document).ready(function() {
+					// Initiate Slidebars
+					$.slidebars();
+				});
+			}) (jQuery);
+		</script>
+	</body>
+</html>
